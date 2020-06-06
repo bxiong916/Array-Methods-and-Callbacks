@@ -15,11 +15,32 @@ console.log('its working');
 
 /* Task 2: Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
+let i;
+function homeTeamA(fifaData){
 
-    /* code here */
-
+    for(i = 0; i <= fifaData.length - 1; i++) {
+        if((fifaData[i].Year === 2014) && (fifaData[i].Stage === 'Final')) {
+            let fifaDataA = fifaData[i];
+            if(fifaDataA['Home Team Goals'] > fifaDataA['Away Team Goals']) {
+                var winnerA = fifaDataA['Home Team Name'];
+            } else {
+                var winnerA = fifaDataA['Away Team Name'];
+            }
+            if(fifaDataA['Home Team Goals'] === 1) {
+            var pluralOrSingularA = 'goal'; // uses proper speech for 1 goal (singular)
+            } else {
+                var pluralOrSingularA = 'goals'; // uses proper speech for 0, or 2 and up goals (plural)
+            }
+            if(fifaDataA['Away Team Goals'] === 1) {
+                var pluralOrSingularB = 'goal';
+            } else {
+                var pluralOrSingularB = 'goals';
+            }
+            return `Home Team: ${fifaDataA['Home Team Name']} scored ${fifaDataA['Home Team Goals']} ${pluralOrSingularA} and Away Team: ${fifaDataA['Away Team Name']} scored ${fifaDataA['Away Team Goals']} ${pluralOrSingularB}. ${winnerA} won the game`;
+        }
+    }
 };
+console.log(homeTeamA(fifaData));
 
 /* Task 3: Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
 
