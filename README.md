@@ -106,3 +106,31 @@ Follow these steps for completing your project.
 - [ ] Submit a pull request to merge Branch into master (student's Repo). Please don't merge your own pull request.
 - [ ] Add your Team Lead as a reviewer on the pull request.
 - [ ] Your Team Lead will count the project as complete by merging the branch back into master.
+
+
+let i;
+function homeTeamA(fifaData){
+
+    for(i = 0; i <= fifaData.length - 1; i++) {
+        if((fifaData[i].Year === 2014) && (fifaData[i].Stage === 'Final')) {
+            let fifaDataA = fifaData[i];
+            if(fifaDataA['Home Team Goals'] > fifaDataA['Away Team Goals']) {
+                var winnerA = fifaDataA['Home Team Name'];
+            } else {
+                var winnerA = fifaDataA['Away Team Name'];
+            }
+            if(fifaDataA['Home Team Goals'] === 1) {
+            var pluralOrSingularA = 'goal'; // uses proper speech for 1 goal (singular)
+            } else {
+                var pluralOrSingularA = 'goals'; // uses proper speech for 0, or 2 and up goals (plural)
+            }
+            if(fifaDataA['Away Team Goals'] === 1) {
+                var pluralOrSingularB = 'goal';
+            } else {
+                var pluralOrSingularB = 'goals';
+            }
+            return `Home Team: ${fifaDataA['Home Team Name']} scored ${fifaDataA['Home Team Goals']} ${pluralOrSingularA} and Away Team: ${fifaDataA['Away Team Name']} scored ${fifaDataA['Away Team Goals']} ${pluralOrSingularB}. ${winnerA} won the game`;
+        }
+    }
+};
+console.log(homeTeamA(fifaData));
